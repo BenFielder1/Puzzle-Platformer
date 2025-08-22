@@ -1,6 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
+const io = require("socket.io")
+
+const IO = new io.Server(4000);
+
+console.log(IO)
+
 //configuration for the Phaser game
 let config = {
   type: Phaser.HEADLESS,
@@ -58,7 +64,8 @@ function create(){
   this.physics.add.overlap(this.balls, this.goals, handleGoal)
 
   //this is called when a player connects to the server
-  io.on("connection", (socket)=>{
+  IO.on("connection", (socket)=>{
+    console.log('a user connected: ', socket.id)
     //this is called when the minigame event is triggered
     socket.on("minigame", (minigame)=>{
       //if the player is connecting to the football minigame then create a player for them
@@ -101,7 +108,7 @@ function create(){
       //console.log('user disconnected')
       removePlayer(game, socket.id)
       delete players[socket.id]
-      io.emit("disconnect", socket.id)
+      IO.emit("disconnect", socket.id)
     });
   });
 }
@@ -111,11 +118,11 @@ function update(){
   updatePlayerVelocity(this, players)
 
   //emit the player updates event
-  io.emit('playerUpdates-fb', players)
+  IO.emit('playerUpdates-fb', players)
 
   //emit the ball location event
-  io.emit("ballLocation-fb", this.ball)
+  IO.emit("ballLocation-fb", this.ball)
 
   //emit the update scores event
-  io.emit("updateScores-fb", {red:this.redGoal.score, blue:this.blueGoal.score})
+  IO.emit("updateScores-fb", {red:this.redGoal.score, blue:this.blueGoal.score})
 }

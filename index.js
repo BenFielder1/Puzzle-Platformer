@@ -4,7 +4,9 @@ const app = express()
 const server = require("http").Server(app)
 
 //importing the socket.io library
-const io = require("socket.io").listen(server)
+const io = require("socket.io")
+
+const IO = new io.Server(server);
 
 //settting the port to the predefined one or to default to 4000
 const port = process.env.PORT || 4000
@@ -35,7 +37,7 @@ JSDOM.fromFile(__dirname + "/server/star-collector/index.html",{
     pretendToBeVisual:true
 }).then((dom)=>{
     //allows the window to use socket.io
-    dom.window.io = io
+    dom.window.io = IO
     //allows the window to use the name generator
     dom.window.nameGenerator = generator
 }).catch((error)=>{
@@ -50,7 +52,7 @@ JSDOM.fromFile(__dirname + "/server/football/index.html",{
     pretendToBeVisual:true
 }).then((dom)=>{
     //allows the window to use socket.io
-    dom.window.io = io
+    dom.window.io = IO
     //allows the window to use the name generator
     dom.window.nameGenerator = generator
 }).catch((error)=>{
