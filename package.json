@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "host-game": "node index",
-    "start-game": "npm run build && node index"
+    "start-game": "npm run build && node index",
+    "build-game": "npm run build && vercel build"
   },
   "eslintConfig": {
     "extends": [
