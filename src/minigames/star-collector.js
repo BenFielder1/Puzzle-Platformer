@@ -135,7 +135,7 @@ class StarCollector extends Phaser.Scene{
         })
 
         ////event called when a player disconnects
-        this.socket.on("disconnect", (playerId)=>{
+        this.socket.on("disconnect-sc", (playerId)=>{
             //remove the player who disconnected from the game
             game.players.getChildren().forEach((player)=>{
                 if(playerId === player.playerId){
