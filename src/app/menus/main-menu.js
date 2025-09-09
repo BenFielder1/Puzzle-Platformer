@@ -37,7 +37,7 @@ class MainMenu extends Phaser.Scene{
         this.buttons = this.add.group()
         this.newGameButton = createNewButton(this, this.buttons, {x:400, y:200, w:300, h:50}, this.gameScale, {text:"New Game", font: "40px Future", fill: "#00ff00"}, 0xff0000, restartSave, this, "ui-button")
         this.startButton = createNewButton(this, this.buttons, {x:400, y:300, w:300, h:50}, this.gameScale, {text:"Load Game", font: "40px Future", fill: "#00ff00"}, 0xff0000, continueGame, this, "ui-button")
-        this.minigameButton = createNewButton(this, this.buttons, {x:400, y:400, w:300, h:50}, this.gameScale, {text:"Minigames", font: "40px Future", fill: "#00ff00"}, 0xff0000, openMinigames, this, "ui-button")
+        // this.minigameButton = createNewButton(this, this.buttons, {x:400, y:400, w:300, h:50}, this.gameScale, {text:"Minigames", font: "40px Future", fill: "#00ff00"}, 0xff0000, openMinigames, this, "ui-button")
         this.controlsButton = createNewButton(this, this.buttons, {x:400, y:500, w:300, h:50}, this.gameScale, {text:"Settings", font: "40px Future", fill: "#00ff00"}, 0xff0000, seeControls, this, "ui-button")
 
         //restart the puppet scene and tell it not to run
@@ -66,9 +66,9 @@ function seeControls(game){
     game.scene.start("ControlsMenu")
 }
 
-function openMinigames(game){
-    //start the minigame scene
-    game.scene.start("MinigameMenu")
-}
+// function openMinigames(game){
+//     //start the minigame scene
+//     game.scene.start("MinigameMenu")
+// }
 
 export default MainMenu
