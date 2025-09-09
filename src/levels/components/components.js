@@ -214,7 +214,7 @@ export function createNewSpikeSet(game, physicsGroup, info, count, scale, sprite
     if(sprite){
         for(let i = 0; i < count; i++){
             spike = game.add.sprite((info.x+i*25)*scale, (info.y-10)*scale, sprite)
-            spike.setDisplaySize(25, 25)
+            spike.setDisplaySize(25*scale, 25*scale)
             physicsGroup.add(spike)
         }
     }
@@ -231,7 +231,7 @@ export function createNewEnemy(game, physicsGroup, info, target, moveSpeed, scal
     let enemy
     if(sprite){
         enemy = game.add.sprite(info.x*scale, info.y*scale, sprite)
-        enemy.setDisplaySize(enemy.width/2, enemy.height/2)
+        enemy.setDisplaySize(enemy.width/2*scale, enemy.height/2*scale)
         game.anims.create({
             key: "move",
             frames: [{key: "enemy1"}, {key: "enemy2"}],
