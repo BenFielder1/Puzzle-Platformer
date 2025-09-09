@@ -1,7 +1,8 @@
+"use client"
 //importing libraries
-import React from "react"
+import { useEffect } from "react"
 import Phaser from "phaser"
-import {IonPhaser} from "@ion-phaser/react"
+// import { IonPhaser } from "@ion-phaser/react"
 
 //importing the Menu scenes
 import PreloadScene from "./menus/preload-scene"
@@ -28,50 +29,49 @@ import Football from "./minigames/football"
 ****  and then restarts game2 which gives the impression
 *///  that game2 has changed scenes as well.
 
-//Class to initialise the Phaser game
-class Game1 extends React.Component{
-    //Phaser configuration
-    state = {
-        initialize: true,
-        game: {
-            type: Phaser.AUTO,
-            parent: 'game1',
-            width: (window.innerWidth/2-50),
-            height: ((window.innerWidth/2-50)*(600/800)),
-            physics: {
-                default: 'arcade',
-                arcade: {
-                    gravity: { y: 300 * ((window.innerWidth/2-50)/800) },
-                    debug: false
-                }
-            },
-            //This is where to add the scenes to the game.
-            //PreloadScene is the first scene called as it is the first listed
-            scene: [
-                PreloadScene,
-                MainMenu,
-                LevelSelect,
-                MinigameMenu,
-                ControlsMenu,
-                CreditsMenu,
-                PauseMenu,
-                Level1,
-                Level2,
-                Level3,
-                Level4,
-                Level5,
-                StarCollector,
-                Football
-            ]
+//function to initialise the Phaser game
+export default function Game1() {
+    useEffect(() => {
+        const state = {
+            initialize: true,
+            game: {
+                type: Phaser.AUTO,
+                parent: 'game1',
+                width: (window.innerWidth / 2 - 50),
+                height: ((window.innerWidth / 2 - 50) * (600 / 800)),
+                physics: {
+                    default: 'arcade',
+                    arcade: {
+                        gravity: { y: 300 * ((window.innerWidth / 2 - 50) / 800) },
+                        debug: false
+                    }
+                },
+                //This is where to add the scenes to the game.
+                //PreloadScene is the first scene called as it is the first listed
+                scene: [
+                    PreloadScene,
+                    MainMenu,
+                    LevelSelect,
+                    MinigameMenu,
+                    ControlsMenu,
+                    CreditsMenu,
+                    PauseMenu,
+                    Level1,
+                    Level2,
+                    Level3,
+                    Level4,
+                    Level5,
+                    StarCollector,
+                    Football
+                ]
+            }
         }
-    }
-    render(){
-        const { initialize, game } = this.state
-        return(
-            //returning the Phaser game as a jsx component
-            <IonPhaser game={game} initialize={initialize} />
-        )
-    }
-}
 
-export default Game1
+        // eslint-disable-next-line no-unused-vars
+        const game = new Phaser.Game(state.game);
+    }, []);
+
+    return (
+        <div id="game1" />
+    );
+}

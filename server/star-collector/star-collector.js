@@ -104,7 +104,7 @@ function create(){
     socket.on("disconnect", ()=>{
       removePlayer(game, socket.id)
       delete players[socket.id]
-      io.emit("disconnect", socket.id)
+      io.emit("disconnect-sc", socket.id)
     });
   });
 }

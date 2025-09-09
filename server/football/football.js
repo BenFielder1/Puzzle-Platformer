@@ -101,7 +101,7 @@ function create(){
       //console.log('user disconnected')
       removePlayer(game, socket.id)
       delete players[socket.id]
-      io.emit("disconnect", socket.id)
+      io.emit("disconnect-fb", socket.id)
     });
   });
 }

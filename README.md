@@ -12,7 +12,7 @@ The code is being hosted by heroku so that you can play the game. It can be foun
 
 ## Credits for Assets
 
-Kenny - Background for levels 1, 2, 3 and 5, platforms, ineractable objects, enemies and font
+Kenney.nl - Background for levels 1, 2, 3 and 5, platforms, ineractable objects, enemies and font
 
 PWL - Background for level 4
 
