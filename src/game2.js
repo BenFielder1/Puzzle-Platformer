@@ -1,5 +1,5 @@
 //importing libraries
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import Phaser from "phaser"
 // import {IonPhaser} from "@ion-phaser/react"
 
@@ -11,40 +11,7 @@ import { createNewPlatforms, createFollowCamera, createNewBox, createNewButton, 
 ****  is changed in game1. It is designed so that only
 *///  1 scene will ever be needed as it is controlled
 
-//class to initialise the game
-class Game22 extends React.Component {
-    //Phaser configuration
-    state = {
-        initialize: true,
-        game: {
-            type: Phaser.AUTO,
-            parent: 'game2',
-            width: (window.innerWidth / 2 - 50),
-            height: ((window.innerWidth / 2 - 50) * (600 / 800)),
-            physics: {
-                default: 'arcade',
-                arcade: {
-                    gravity: { y: 300 * ((window.innerWidth / 2 - 50) / 800) },
-                    debug: false
-                }
-            },
-            scene: {
-                preload: preload,
-                create: create,
-                update: update
-            }
-        }
-    }
-    render() {
-        const { initialize, game } = this.state
-        return (
-            //returning the Phaser game as a jsx component
-            // <IonPhaser game={game} initialize={initialize} />
-            <div id="game2" />
-        )
-    }
-}
-
+//function to initialise the game
 export default function Game2() {
     useEffect(() => {
         const state = {
@@ -69,6 +36,7 @@ export default function Game2() {
             }
         }
 
+        // eslint-disable-next-line no-unused-vars
         const game = new Phaser.Game(state.game);
     }, []);
 
