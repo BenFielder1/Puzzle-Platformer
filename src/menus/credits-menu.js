@@ -31,7 +31,7 @@ class CreditsMenu extends Phaser.Scene{
 
         //creating text to display the controls for the game
         this.credit1text = createNewText(this, this.texts, {x:400,y:200}, this.gameScale, {text:"Created and Devloped by Ben Fielder", font: "32px Future", fill: "#000000"})
-        this.credit2text = createNewText(this, this.texts, {x:400,y:300}, this.gameScale, {text:"Kenny - Background for levels 1, 2, 3 and 5, platforms,", font: "18px Future", fill: "#000000"})
+        this.credit2text = createNewText(this, this.texts, {x:400,y:300}, this.gameScale, {text:"Kenney.nl - Background for levels 1, 2, 3 and 5, platforms,", font: "18px Future", fill: "#000000"})
         this.credit2text2 = createNewText(this, this.texts, {x:400,y:320}, this.gameScale, {text:"ineractable objects, enemies and font", font: "18px Future", fill: "#000000"})
         this.credit3text = createNewText(this, this.texts, {x:400,y:350}, this.gameScale, {text:"PWL - Background for level 4", font: "18px Future", fill: "#000000"})
         this.credit4text = createNewText(this, this.texts, {x:400,y:400}, this.gameScale, {text:"Ahmed Khalf - football and football goal", font: "18px Future", fill: "#000000"})
