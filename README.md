@@ -7,8 +7,10 @@ If you have a build, you can run ```node index``` or ```npm run host-game``` to 
 
 ## Playing the Game
 
-The code is being hosted by heroku so that you can play the game. It can be found at
-[https://ben-fielder-a-level-project.herokuapp.com/](https://ben-fielder-a-level-project.herokuapp.com/)
+The project is being hosted on Vercel so that you can play the game. It can be found at
+[https://platformer.benfielder.com](https://platformer.benfielder.com)
+Unfortunately, Vercel can't host socket.io servers, so the minigames are unavailable to be played via this link.
+If you wish to play the multiplayer minigames then run a local server hosting the latest build.
 
 ## Credits for Assets
 
